@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">PlantV4</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">home</string>
+
+    <string name="intro">Indoor plant become a lifestyle to human. The indoor plant can bring you healthy and happy living environment.
+        \n When you become a plant parent, you may meet a lot of problem. Our company will offer you lots of service to help you come a green fingers.
+        \n We offer professional advice about your plant, and when you out for travel and no one to take care of your plant, we will take care of you plant.
+        \n Please leave your contact and message to require the service from us.</string>
+    <string name="hint_name">Please enter your name</string>
+    <string name="hint_email">Please enter your email</string>
+    <string name="hint_phone">Please enter your phone</string>
+    <string name="hint_service">Please enter the service you need</string>
+    <string name="btn_submit">Submit</string>
+
+    <string name="btn_add">Add</string>
+    <string name="ab_qa"><![CDATA[Q&A]]></string>
+    <string name="ab_about_us">About Us</string>
+    <string-array name="Service">
+        <item>Professional Advice About Plant</item>
+        <item>Plant Take Care when Travelling</item>
+        <item>Plant Swap</item>
+        <item>Other</item>
+    </string-array>
+
+    <string name="tv_identify"> Do not know what your plant is? \n No worries, check here to identify.</string>
+    <string name="btn_identify">Identify</string>
+</resources>
