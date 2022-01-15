@@ -6,10 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".MyPlantActivity">
 
-    <ListView
-        android:id="@+id/lvPlant"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-       />
+
+    <LinearLayout
+        android:layout_width="407dp"
+        android:layout_height="731dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/svPlant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:defaultQueryHint="Enter Keyword About Your Plant"
+            android:autofillHints="Enter Keyword About Your Plant"
+
+            >
+
+        </androidx.appcompat.widget.SearchView>
+
+        <ListView
+            android:id="@+id/lvPlant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

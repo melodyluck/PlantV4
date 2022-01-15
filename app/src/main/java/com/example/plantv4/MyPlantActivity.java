@@ -3,6 +3,7 @@ package com.example.plantv4;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class MyPlantActivity extends AppCompatActivity {
     static ArrayList<Plant> plantHave = new ArrayList<>();
@@ -19,9 +21,9 @@ public class MyPlantActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_plant);
-        SearchView svPlant;
-        ListView lvPlant = findViewById(R.id.lvPlant);
 
+        ListView lvPlant = findViewById(R.id.lvPlant);
+        SearchView svPlant = findViewById(R.id.svPlant);
         Plant rubberPlant = new Plant(R.mipmap.ic_rubber_plant_list,
                                     "Name:Rubber Plant",
                                     "Water:Once a Week",
@@ -53,8 +55,34 @@ public class MyPlantActivity extends AppCompatActivity {
                 plantHave.add(plantList.get(i));
                 PlantFragment.adapter.notifyDataSetChanged();
 
-
                 Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        //SearchView svPlant = findViewById(R.id.svPlant);
+        svPlant.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                ArrayList<Plant> result = new ArrayList<>();
+                for(int i = 0; i < plantList.size(); i++){
+                    if(plantList.get(i).getName().toUpperCase().contains(newText.toUpperCase())
+                        ||plantList.get(i).getWater().toUpperCase().contains(newText.toUpperCase())
+                        || plantList.get(i).getLight().toUpperCase().contains(newText.toUpperCase())
+                        ||plantList.get(i).getTemperature().toUpperCase().contains(newText.toUpperCase())){
+                        result.add(plantList.get(i));
+                    }
+                }
+
+                PlantAdapter adapter = new PlantAdapter(MyPlantActivity.this, R.layout.custom_listview, result);
+                lvPlant.setAdapter(adapter);
+                //((PlantAdapter) lvPlant.getAdapter()).update(result);
+
+                return false;
             }
         });
 
